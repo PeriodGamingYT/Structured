@@ -1,4 +1,3 @@
-import * from 'core.js'
 var Keys = {};
 window.onkeydown = (e) => {
   Keys[e.key.toLowerCase()] = true;
