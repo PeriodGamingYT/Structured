@@ -20,7 +20,7 @@ window.onblur = () => {
 
 var _mouseLut = [
   "left",
-  "middle',
+  "middle",
   "right"
 ];
 
