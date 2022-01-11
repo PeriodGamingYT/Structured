@@ -1,5 +1,4 @@
 import * from 'core.js';
-
 export function Canvas(width=window.innerWidth, height=window.innerHeight) {
   var canvas = document.createElement("canvas");
   canvas.width = width;
