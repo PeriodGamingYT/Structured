@@ -1,4 +1,4 @@
-var Keys = {};
+export var Keys = {};
 window.onkeydown = (e) => {
   Keys[e.key.toLowerCase()] = true;
 }
@@ -7,7 +7,7 @@ window.onkeyup = (e) => {
   Keys[e.key.toLowerCase()] = false;
 }
 
-var Mouse = {};
+export var Mouse = {};
 window.onblur = () => {
   for(var i of _keys) {
     i = false;
