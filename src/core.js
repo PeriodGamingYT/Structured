@@ -1,11 +1,11 @@
-function _ActionEnum(name) {
+export function _ActionEnum(name) {
   return {
     name: name,
     args: args
   };
 }
 
-function _FindEnum(name, args, required=false) {
+export function _FindEnum(name, args, required=false) {
   for(var i of args) {
     if(i.name == name) {
       return {
