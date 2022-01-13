@@ -1,28 +1,32 @@
 function _ActionEnum(name) {
-  return {
-    name: name,
-    args: args
-  };
+	var args = Array.from(arguments);
+	var args = [...args];
+	return {
+		name: name,
+		args: args.slice(1),
+		found: true
+	};
 }
 
 function _FindEnum(name, args, required=false) {
-  for(var i of args) {
-    if(i.name == name) {
-      return {
-        name: i.name,
-        found: true,
-        args: i.args
-      }
-    }
-  }
-  
-  if(required) {
-    throw new Error(`Property ${name}() is missing.`);
-  } else {
-    return {
-      name: null,
-      found: false,
-      args: null
-    }
-  }
-} 
+	for(var i of args) {
+		if(i.name == name && i.found) {
+			return {
+				name: i.name,
+				found: true,
+				args: i.args
+			}
+		}
+	}
+	
+	if(required) {
+		throw new Error(`Property ${name}() is missing.`);
+	} else {
+		// Not null so _FindEnum() doesn't bug out.
+		return {
+			name: "",
+			found: false,
+			args: []
+		};
+	}
+}
