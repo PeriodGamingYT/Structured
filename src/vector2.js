@@ -1,14 +1,14 @@
 import * from 'core.js';
 
 // Object for conveinence sake.
-class Vector2 {
+export class Vector2 {
 	constructor(x=0, y=0) {
 		this.x = x;
 		this.y = y;
 	}
 }
 
-function EnumToVec2(actionEnum, defaultX=0, defaultY=0) {
+export function EnumToVec2(actionEnum, defaultX=0, defaultY=0) {
 	if(actionEnum.found) {
 		return new Vector2(actionEnum.args[0], actionEnum.args[1]);
 	} else {
@@ -16,7 +16,7 @@ function EnumToVec2(actionEnum, defaultX=0, defaultY=0) {
 	}
 }
 
-function Vec2() {
+export function Vec2() {
 	return _ActionEnum(
 		"vec2", 
 		arguments[0], 
@@ -24,14 +24,14 @@ function Vec2() {
 	);
 }
 
-function Size() {
+export function Size() {
 	return _ActionEnum(
 		"size", 
 		Vec2(...arguments)
 	);
 }
 
-function Position() {
+export function Position() {
 	return _ActionEnum(
 		"position", 
 		Vec2(...arguments)
