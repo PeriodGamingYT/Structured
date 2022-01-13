@@ -1,7 +1,7 @@
 import * from 'vector2.js';
 import * from 'core.js';
 
-function Canvas() {
+export function Canvas() {
 	var size = EnumToVec2(_FindEnum("size", arguments), window.innerWidth, window.innerHeight);
 	var position = EnumToVec2(_FindEnum("position", arguments), 0, 0);
   var canvas = document.createElement("canvas");
@@ -22,29 +22,29 @@ function Canvas() {
 	);
 }
 
-function Drawable(drawable=true) {
+export function Drawable(drawable=true) {
 	return _ActionEnum("drawable", drawable);
 }
 
-function Color(r=0, g=0, b=0) {
+export function Color(r=0, g=0, b=0) {
 	return _ActionEnum("color", r, g, b);
 }
 
-function ColorEnumToString(actionEnum) {
+export function ColorEnumToString(actionEnum) {
 	return `rgb(${actionEnum.args[0]}, ${actionEnum.args[1]}, ${actionEnum.args[2]})`;
 }
 
-function Fill() {
+export function Fill() {
 	var drawable = _FindEnum("drawable", arguments, true);
 	var color = _FindEnum("color", arguments, true);
 	return _ActionEnum("fill", drawable, color);
 }
 
-function LineWidth(width=1) {
+export function LineWidth(width=1) {
 	return _ActionEnum("lineWidth", width);
 }
 
-function Stroke() {
+export function Stroke() {
 	var drawable = _FindEnum("drawable", arguments, true);
 	var color = _FindEnum("color", arguments, true);
 	var lineWidth = _FindEnum("lineWidth", arguments, false);
@@ -55,11 +55,11 @@ function Stroke() {
 	return _ActionEnum("stroke", drawable, color, lineWidth);
 }
 
-function Path(path = new Path2D()) {
+export function Path(path = new Path2D()) {
 	return _ActionEnum("path", path);
 }
 
-function CanvasPath(path = new Path2D()) {
+export function CanvasPath(path = new Path2D()) {
 	var canvas = _FindEnum("canvas", arguments, true);
 	var context = _FindEnum("context", canvas.args, true).args[0];
 	var stroke = _FindEnum("stroke", arguments, false);
