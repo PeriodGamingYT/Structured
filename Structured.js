@@ -1,7 +1,7 @@
 import * from 'src/canvas.js';
 import * from 'src/vector2.js';
 
-function Game() {
+export function Game() {
 	var args = Array.from(arguments);
 	var args = [...args];
 	var canvas = Canvas(
