@@ -1,3 +1,5 @@
+import * from 'core.js';
+
 // Object for conveinence sake.
 class Vector2 {
 	constructor(x=0, y=0) {
