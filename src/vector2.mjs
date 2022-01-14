@@ -1,4 +1,4 @@
-import * from 'core.js';
+import { _ActionEnum, _FindEnum } from './core.mjs';
 
 // Object for conveinence sake.
 export class Vector2 {

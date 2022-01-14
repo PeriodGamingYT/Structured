@@ -1,5 +1,5 @@
-import * from 'src/canvas.js';
-import * from 'src/vector2.js';
+import { Canvas } from './src/canvas.mjs';
+import { _FindEnum } from './src/core.mjs';
 
 export function Game() {
 	var args = Array.from(arguments);

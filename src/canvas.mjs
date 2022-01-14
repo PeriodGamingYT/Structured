@@ -1,5 +1,5 @@
-import * from 'vector2.js';
-import * from 'core.js';
+import { EnumToVec2, Vector2, Position, Size } from './vector2.mjs';
+import { _ActionEnum, _FindEnum } from './core.mjs';
 
 export function Canvas() {
 	var size = EnumToVec2(_FindEnum("size", arguments), window.innerWidth, window.innerHeight);
