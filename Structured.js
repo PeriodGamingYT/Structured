@@ -1,5 +1,7 @@
-import * from 'src/canvas.js';
-import * from 'src/vector2.js';
+export import * from 'src/canvas.js';
+export import * from 'src/vector2.js';
+export import * from 'src/input.js';
+export import * from 'src/core.js';
 
 export function Game() {
 	var args = Array.from(arguments);
