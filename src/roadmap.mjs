@@ -2,15 +2,19 @@
   Things to do.
   * Canvas.
   
-  Input.
-    Keyboard,
-    Mouse,
-      X,
-      Y,
-      Left,
-      Right,
-      Middle,
-      Double
+  * Input.
+  	* Focused,
+    * Keyboard,
+    * Mouse,
+      * Coordinates,
+      * Movement,
+      * Left,
+      * Right,
+      * Middle,
+      * Double,
+      * Aux,
+      * Back,
+      * Forward
       
   Basic object functionality,
     Update,
