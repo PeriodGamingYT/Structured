@@ -1,11 +1,14 @@
 /*
   Things to do.
-  * Canvas.
+  * Canvas
+
+  * SVG:
+  	* Path2D
   
-  * Input.
+  * Input:
   	* Focused,
     * Keyboard,
-    * Mouse,
+    * Mouse:
       * Coordinates,
       * Movement,
       * Left,
@@ -15,39 +18,38 @@
       * Aux,
       * Back,
       * Forward
-      
-  Basic object functionality,
-    Update,
-    Start,
-    Exit
-    
-  Rectangles,
+
+  * Tracker
+  
+  X Basic object functionality:
+    X Update,
+    X Start,
+    X Exit
+
+  Updating properties with Access()
+  
+  Rectangles:
     Position,
-    Size,
-    Color
+    Size
     
-  Images,
-    Rectangle,
+  Images:
+    Position,
     Image URL
     
-  Text,
-    Rectangle,
-    Size,
-    Type,
+  Text:
+    Position,
+    Font Size,
+    Font Type,
     Text,
-    Best Fit,
-    Italic,
+    Use Best Fit,
+   	Italic,
     Bold,
     Underline
     
-  Oval,
-    Rectangle,
-    Color
+  Ovals:
+  		(Position, Size) / (Center, Radius)
     
-  SVG,
-    Path2D
-    
-  Collision,
+  Collision:
     OnEnter,
     OnThisFrame,
     OnExit

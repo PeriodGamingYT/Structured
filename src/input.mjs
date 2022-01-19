@@ -1,19 +1,31 @@
-export var Focused = true;
+import { MakeTracker } from './tracker.mjs';
+
+export var Focused = MakeTracker(true);
 window.onblur = () => {
-  Focused = false;
+  Focused.value = false;
 }
 
 window.onfocus = () => {
-	Focused = true;
+	Focused.value = true;
 }
 
 export var Keys = {};
 window.onkeydown = (e) => {
-  Keys[e.key.toLowerCase()] = true;
+	if(!Keys[e.key.toLowerCase]) {
+		Keys[e.key.toLowerCase()] = MakeTracker(true);
+		return;
+	}
+
+	Keys[e.key.toLowerCase()].value = true;
 }
 
 window.onkeyup = (e) => {
-  Keys[e.key.toLowerCase()] = false;
+  if(!Keys[e.key.toLowerCase]) {
+  		Keys[e.key.toLowerCase()] = MakeTracker(false);
+  		return;
+  	}
+  
+  	Keys[e.key.toLowerCase()].value = false;
 }
 
 import { Vector2 } from './vector2.mjs';
@@ -50,19 +62,37 @@ function decode(buttons, mouseLut=false) {
 window.onmousedown = (e) => {
 	var buttons = decode(e.buttons);
   for(var i of buttons) {
-  	Mouse[i] = true;
+  	if(!Mouse[i]) {
+  		Mouse[i] = MakeTracker(true);
+  	} else {
+  		Mouse[i].value = true;
+  	}
   }
 }
 
 window.onmouseup = (e) => {
   var buttons = decode(e.buttons, true);
   for(var i of buttons) {
-  	Mouse[i] = false;
-  }
+  	if(!Mouse[i]) {
+  		Mouse[i] = MakeTracker(false);
+  	} else {
+  		Mouse[i].value = false;
+  	}
+ 	}
 }
 
 window.ondblclick = () => {
-	Mouse["double"] = true;
+	if(!Mouse["double"]) {
+		Mouse["double"] = MakeTracker(true);
+		return;
+	}
+
+	if(!Mouse["double"].changed && !Mouse["double"].start) {
+		Mouse["double"].value = false;
+		return;
+	}
+
+	Mouse["double"].value = true;
 }
 
 var timeout;
