@@ -28,27 +28,30 @@
 
   Updating properties with Access()
   
-  Rectangles:
-    Position,
-    Size
+  * Rectangles:
+    * Position,
+    * Size
     
-  Images:
-    Position,
-    Image URL
+  * Images:
+    * Position,
+    * Image URL
     
   Text:
-    Position,
-    Font Size,
+    Rectangle,
     Font Type,
     Text,
-    Use Best Fit,
    	Italic,
     Bold,
     Underline
     
   Ovals:
-  		(Position, Size) / (Center, Radius)
-    
+  	Rectangle / (Center, Radius)
+  
+	Rigidbody:
+		Velocity,
+		Mass,
+		Acceleration
+
   Collision:
     OnEnter,
     OnThisFrame,
