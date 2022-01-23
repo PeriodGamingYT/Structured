@@ -37,12 +37,12 @@
     * Image URL
     
   Text:
-    Rectangle,
-    Font Type,
-    Text,
-   	Italic,
-    Bold,
-    Underline
+    * Rectangle,
+    * Font Type,
+    * Text,
+   	* Italic,
+    * Bold,
+    * Underline
     
   Ovals:
   	Rectangle / (Center, Radius)
@@ -56,4 +56,6 @@
     OnEnter,
     OnThisFrame,
     OnExit
+
+  !!! P.S. Once this is all done, a new roadmap will be made. !!!
 */

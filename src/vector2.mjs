@@ -8,20 +8,17 @@ export class Vector2 {
 	}
 }
 
-export function EnumToVec2(actionEnum, defaultX=0, defaultY=0) {
-	if(actionEnum.found) {
-		return new Vector2(actionEnum.args[0], actionEnum.args[1]);
-	} else {
-		return new Vector2(defaultX, defaultY);
-	}
-}
-
 export function Vec2() {
 	return _ActionEnum(
 		"vec2", 
 		arguments[0], 
 		arguments.length == 1 ? arguments[0] : arguments[1]
 	);
+}
+
+export function EnumToVec2() {
+	var vec2Enum = _FindEnum("vec2", arguments, false, [0, 0]);
+	return new Vector2(vec2Enum.args[0], vec2Enum.args[1]);
 }
 
 export function Size() {

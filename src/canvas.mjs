@@ -2,8 +2,8 @@ import { EnumToVec2, Vector2, Position, Size } from './vector2.mjs';
 import { _ActionEnum, _FindEnum } from './core.mjs';
 
 export function Canvas() {
-	var size = EnumToVec2(_FindEnum("size", arguments), window.innerWidth, window.innerHeight);
-	var position = EnumToVec2(_FindEnum("position", arguments), 0, 0);
+	var size = EnumToVec2(_FindEnum("size", arguments, false, [window.innerWidth, window.innerHeight]));
+	var position = EnumToVec2(_FindEnum("position", arguments, false, [0, 0]));
   var canvas = document.createElement("canvas");
   canvas.width = size.x;
   canvas.height = size.y;
@@ -47,11 +47,7 @@ export function LineWidth(width=1) {
 export function Stroke() {
 	var drawable = _FindEnum("drawable", arguments, true);
 	var color = _FindEnum("color", arguments, true);
-	var lineWidth = _FindEnum("lineWidth", arguments, false);
-	if(!lineWidth.found) {
-		lineWidth = LineWidth(1);
-	}
-
+	var lineWidth = _FindEnum("lineWidth", arguments, false, [LineWidth(1)]);
 	return _ActionEnum("stroke", drawable, color, lineWidth);
 }
 
@@ -62,15 +58,8 @@ export function Path(path = new Path2D()) {
 export function CanvasPath(path = new Path2D()) {
 	var canvas = _FindEnum("canvas", arguments, true);
 	var context = _FindEnum("context", canvas.args, true).args[0];
-	var stroke = _FindEnum("stroke", arguments, false);
-	if(!stroke.found) {
-		stroke = Stroke(Drawable(true), Color(0, 0, 0));
-	}
-
-	var fill = _FindEnum("fill", arguments, false);
-	if(!fill.found) {
-		fill = Fill(Drawable(true), Color(255, 255, 255));
-	}
+	var stroke = _FindEnum("stroke", arguments, false, [Stroke(Drawable(true), Color(0, 0, 0))]);
+	var fill = _FindEnum("fill", arguments, false, [Fill(Drawable(true), Color(255, 255, 255))]);
 
 	var path = _FindEnum("path", arguments, true).args[0];
 	if(_FindEnum("drawable", fill.args, true).args[0]) {

@@ -8,7 +8,7 @@ export function _ActionEnum(name) {
 	};
 }
 
-export function _FindEnum(name, args, required=false) {
+export function _FindEnum(name, args, required=false, defaultArgs=[]) {
 	for(var i of args) {
 		if(i.name == name && i.found) {
 			return {
@@ -26,7 +26,7 @@ export function _FindEnum(name, args, required=false) {
 		return {
 			name: "",
 			found: false,
-			args: []
+			args: defaultArgs
 		};
 	}
 }
