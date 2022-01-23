@@ -14,8 +14,7 @@ export function Canvas() {
   canvas.style.height = "auto";
   document.body.appendChild(canvas);
   canvas = canvas.getContext("2d");
-  return _ActionEnum(
-		"canvas", 
+  return _ActionEnum("canvas", 
 		_ActionEnum("context", canvas), 
 		Position(position.x, position.y), 
 		Size(size.x, size.y)
@@ -35,9 +34,10 @@ export function ColorEnumToString(actionEnum) {
 }
 
 export function Fill() {
-	var drawable = _FindEnum("drawable", arguments, true);
-	var color = _FindEnum("color", arguments, true);
-	return _ActionEnum("fill", drawable, color);
+	return _ActionEnum("fill", 
+		_FindEnum("drawable", arguments, true),
+		_FindEnum("color", arguments, true)
+	);
 }
 
 export function LineWidth(width=1) {
@@ -45,10 +45,11 @@ export function LineWidth(width=1) {
 }
 
 export function Stroke() {
-	var drawable = _FindEnum("drawable", arguments, true);
-	var color = _FindEnum("color", arguments, true);
-	var lineWidth = _FindEnum("lineWidth", arguments, false, [LineWidth(1)]);
-	return _ActionEnum("stroke", drawable, color, lineWidth);
+	return _ActionEnum("stroke",
+    _FindEnum("drawable", arguments, true),
+		_FindEnum("color", arguments, true),
+		_FindEnum("lineWidth", arguments, false, [LineWidth(1)])
+  );
 }
 
 export function Path(path = new Path2D()) {

@@ -1,4 +1,5 @@
 /*
+	!!! If you are looking at this repo, make sure all the syntax is up to date. !!!
   Things to do.
   * Canvas
 
@@ -25,8 +26,6 @@
     X Update,
     X Start,
     X Exit
-
-  Updating properties with Access()
   
   * Rectangles:
     * Position,
@@ -36,7 +35,7 @@
     * Position,
     * Image URL
     
-  Text:
+  * Text:
     * Rectangle,
     * Font Type,
     * Text,
@@ -44,18 +43,23 @@
     * Bold,
     * Underline
     
-  Ovals:
-  	Rectangle / (Center, Radius)
+  * Ovals:
+  	* Rectangle,
+		* IsRaduis (Raduis)
   
+	Have all shapes be drawable on canvas.
+
 	Rigidbody:
 		Velocity,
 		Mass,
 		Acceleration
+
 
   Collision:
     OnEnter,
     OnThisFrame,
     OnExit
 
+	Updating properties with Access() !!! THIS IS NEEDED FOR FIRST RELEASE !!!
   !!! P.S. Once this is all done, a new roadmap will be made. !!!
 */
