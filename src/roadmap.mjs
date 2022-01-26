@@ -22,11 +22,6 @@
 
   * Tracker
   
-  X Basic object functionality:
-    X Update,
-    X Start,
-    X Exit
-  
   * Rectangles:
     * Position,
     * Size
@@ -48,6 +43,13 @@
 		* IsRaduis (Raduis)
   
 	Have all shapes be drawable on canvas.
+
+  Object:
+    ContextPath,
+    Position,
+    Start,
+    Update,
+    Exit
 
 	Rigidbody:
 		Velocity,

@@ -30,9 +30,9 @@ export function TextString(string="") {
 }
 
 export function Text() {
-	return _ActionEnum("text"
+	return _ActionEnum("text",
 		_FindEnum("rectangle", arguments, true),
-		_FindEnum("font", arguments, false, [Font()]),
+		_FindEnum("font", arguments, false, Font()),
 		_FindEnum("textString", arguments, true)
 	);
 }

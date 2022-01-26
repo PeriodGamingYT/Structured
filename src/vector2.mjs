@@ -17,7 +17,7 @@ export function Vec2() {
 }
 
 export function EnumToVec2() {
-	var vec2Enum = _FindEnum("vec2", arguments, false, [0, 0]);
+	var vec2Enum = _FindEnum("vec2", arguments, false, _FindEnum("vec2", arguments[0].args, true));
 	return new Vector2(vec2Enum.args[0], vec2Enum.args[1]);
 }
 
