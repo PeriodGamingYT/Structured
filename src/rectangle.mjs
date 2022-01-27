@@ -2,14 +2,6 @@ import { _ActionEnum, _FindEnum } from './core.mjs';
 import { Path } from './canvas.mjs';
 import { EnumToVec2 } from './vector2.mjs';
 
-export function Rectangle() {
-    return _ActionEnum(
-        "rectangle",
-        _FindEnum("position", arguments, true),
-        _FindEnum("size", arguments, true)
-    );
-}
-
 export function RectanglePath() {
     var rectangle = _FindEnum("rectangle", arguments, true);
     var rectanglePath = new Path2D();
@@ -21,4 +13,17 @@ export function RectanglePath() {
     rectanglePath.lineTo(startPoint.x, endPoint.y);
     rectanglePath.lineTo(startPoint.x, startPoint.y);
     return Path(rectanglePath);
+}
+
+// All set out like this because just passing "arguments doesn't work".
+export function Rectangle() {
+    return _ActionEnum(
+        "rectangle",
+        _FindEnum("position", arguments, true),
+        _FindEnum("size", arguments, true),
+        _ActionEnum("path", RectanglePath(_ActionEnum("rectangle", 
+            _FindEnum("position", arguments, true),
+            _FindEnum("size", arguments, true)
+        )))
+    );
 }

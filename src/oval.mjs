@@ -3,18 +3,6 @@ import { EnumToVec2, Vector2 } from './vector2.mjs';
 import { Rectangle } from './rectangle.mjs';
 import { Path } from './canvas.mjs';
 
-export function Center(center=true) {
-	return _ActionEnum("center", center);
-}
-
-export function Oval() {
-	return _ActionEnum("oval",
-		_FindEnum("position", arguments, true),
-		_FindEnum("size", arguments, true),
-		_FindEnum("center", arguments, false, Center(false))
-	);
-}
-
 function ellipse(position=new Vector2(), size=new Vector2()) {
 	var magic = .5522848;
 	var offset = new Vector2((size.x / 2) * magic, (size.y / 2) * magic);
@@ -33,6 +21,10 @@ function ellipseByCenter(position=new Vector2(), size=new Vector2()) {
 	return ellipse(new Vector2(position.x - size.x / 2, position.u - size.y / 2), size);
 }
 
+export function Center(center=true) {
+	return _ActionEnum("center", center);
+}
+
 export function OvalPath() {
 	var oval = _FindEnum("oval", arguments, true);
 	var center = _FindEnum("center", oval.args, false, Center()).args[0];
@@ -46,4 +38,18 @@ export function OvalPath() {
 	}
 
 	return Path(ovalPath);
+}
+
+// All set out like this because just passing "arguments doesn't work".
+export function Oval() {
+	return _ActionEnum("oval",
+		_FindEnum("position", arguments, true),
+		_FindEnum("size", arguments, true),
+		_FindEnum("center", arguments, false, Center(false)),
+		_ActionEnum("path", OvalPath(_ActionEnum("oval",
+			_FindEnum("position", arguments, true),
+			_FindEnum("size", arguments, true),
+			_FindEnum("center", arguments, true)
+		)))
+	);
 }
