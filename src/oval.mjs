@@ -40,7 +40,7 @@ export function OvalPath() {
 	return Path(ovalPath);
 }
 
-// All set out like this because just passing "arguments doesn't work".
+// All set out like this because just passing "arguments" doesn't work.
 export function Oval() {
 	return _ActionEnum("oval",
 		_FindEnum("position", arguments, true),

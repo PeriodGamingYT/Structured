@@ -59,7 +59,7 @@ export function DrawText() {
 	}
 }
 
-// All set out like this because just passing "arguments doesn't work".
+// All set out like this because just passing "arguments" doesn't work.
 export function Text() {
 	return _ActionEnum("text",
 		_FindEnum("rectangle", arguments, true),

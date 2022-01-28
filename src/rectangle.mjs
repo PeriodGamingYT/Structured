@@ -15,7 +15,7 @@ export function RectanglePath() {
     return Path(rectanglePath);
 }
 
-// All set out like this because just passing "arguments doesn't work".
+// All set out like this because just passing "arguments" doesn't work.
 export function Rectangle() {
     return _ActionEnum(
         "rectangle",

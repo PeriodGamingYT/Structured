@@ -8,6 +8,6 @@ export function Game() {
 		_FindEnum("position", arguments, false),
 		_FindEnum("size", arguments, false)
 	);
-
+	
 	return _ActionEnum("game", canvas);
 }
