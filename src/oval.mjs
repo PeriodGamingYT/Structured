@@ -18,7 +18,7 @@ function ellipse(position=new Vector2(), size=new Vector2()) {
 }
 
 function ellipseByCenter(position=new Vector2(), size=new Vector2()) {
-	return ellipse(new Vector2(position.x - size.x / 2, position.u - size.y / 2), size);
+	return ellipse(new Vector2(position.x - size.x / 2, position.y - size.y / 2), size);
 }
 
 export function Center(center=true) {
