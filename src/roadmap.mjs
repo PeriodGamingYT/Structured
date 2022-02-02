@@ -42,14 +42,14 @@
   	* Rectangle,
 		* IsRaduis (Raduis)
   
-	Have all shapes be drawable on canvas.
+	* Have all shapes be drawable on canvas.
 
-  Object:
-    ContextPath,
-    Position,
-    Start,
-    Update,
-    Exit
+  * Object:
+    * CanvasObject,
+    * Position,
+    * Start,
+    * Update,
+    * Exit
 
 	Rigidbody:
 		Velocity,

@@ -1,6 +1,5 @@
 import { _ActionEnum, _FindEnum } from './core.mjs';
 import { EnumToVec2, Vector2 } from './vector2.mjs';
-import { Rectangle } from './rectangle.mjs';
 import { Path } from './canvas.mjs';
 
 function ellipse(position=new Vector2(), size=new Vector2()) {

@@ -11,6 +11,7 @@ export function Canvas() {
   canvas.style.left = `${position.x}px`;
   canvas.style.top = `${position.y}px`;
   document.body.appendChild(canvas);
+	document.body.style.overflow = "hidden";
   canvas = canvas.getContext("2d");
   return _ActionEnum("canvas", 
 		_ActionEnum("context", canvas), 
@@ -56,8 +57,7 @@ export function Path(path = new Path2D()) {
 }
 
 export function CanvasPath() {
-	var canvas = _FindEnum("canvas", arguments, true);
-	var context = _FindEnum("context", canvas.args, true).args[0];
+	var context = _FindEnum("context", _FindEnum("canvas", arguments, true).args, true).args[0];
 	var stroke = _FindEnum("stroke", arguments, false, Stroke(Drawable(true), Color(0, 0, 0)));
 	var fill = _FindEnum("fill", arguments, false, Fill(Drawable(true), Color(255, 255, 255)));
 
