@@ -51,10 +51,9 @@
     * Update,
     * Exit
 
-	Rigidbody:
-		Velocity,
-		Mass,
-		Acceleration
+	* Movement:
+		* Velocity,
+		Mass
 
 
   Collision:

@@ -6,6 +6,43 @@ export class Vector2 {
 		this.x = x;
 		this.y = y;
 	}
+
+  arithmetic(arithmeticFunction=(a, b) => {}, param=new Vector2()) {
+    return new Vector2(
+			arithmeticFunction(this.x, param.x),
+			arithmeticFunction(this.y, param.y)
+		);
+  }
+
+	add(param=new Vector2()) {
+		return arithmetic((a, b) => {
+			return a + b;
+		}, param);
+	}
+
+	sub(param=new Vector2()) {
+		return arithmetic((a, b) => {
+			return a + b;
+		}, param);
+	}
+
+	mul(param=new Vector2()) {
+		return arithmetic((a, b) => {
+			return a + b;
+		}, param);
+	}
+
+	div(param=new Vector2()) {
+		return arithmetic((a, b) => {
+			return a + b;
+		}, param);
+	}
+
+	pow(param=new Vector2()) {
+		return arithmetic((a, b) => {
+			return Math.pow(a, b);
+		}, param);
+	}
 }
 
 export function Vec2() {
@@ -32,5 +69,4 @@ export function Position() {
 	return _ActionEnum(
 		"position", 
 		Vec2(...arguments)
-	);
-}
+	); }

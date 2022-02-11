@@ -62,7 +62,7 @@ export function Exit(method=() => {}) {
 export function Object(canasObject) {
   return _ActionEnum(
     canvasObject,
-    _FindEnum("Position", arguments, false, Position(0, 0)),
+    _FindEnum("position", arguments, false, Position(0, 0)),
     _FindEnum("start", arguments, false, Start()),
     _FindEnum("update", arguments, false, Update()),
     _FindEnum("exit", arguments, false, Exit()),
