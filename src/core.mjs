@@ -31,15 +31,15 @@ export function _FindEnum(name, args, required=false, defaultValue=Nothing()) {
 	if(required && index == -1) {
 		name = name.charAt(0).toUpperCase() + name.substring(1, name.length);
 		throw new Error(`Property ${name}() is missing.`);
-	} else {
+	} else if(!required && index == -1) {
 		// Not null so _FindEnum() doesn't bug out.
 		defaultValue.found = true;
-		if(defaultValue.name == "nothing") {
+		if(defaultValue.name === "nothing") {
 			defaultValue.found = false;
 		}
 
 		return defaultValue;
 	}
 
-  return args[i];
+  return args[index];
 }
