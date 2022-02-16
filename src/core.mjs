@@ -8,25 +8,38 @@ export function _ActionEnum(name) {
 	};
 }
 
-export function _FindEnum(name, args, required=false) {
-	for(var i of args) {
-		if(i.name == name && i.found) {
-			return {
-				name: i.name,
-				found: true,
-				args: i.args
-			}
+export function Nothing() {
+	return {
+		name: "nothing",
+		found: false,
+		args: []
+	}
+}
+
+export function _FindEnumIndex(name, args) {
+    for(var i = 0; i < args.length; i++) {
+		if(args[i].name === name && args[i].found) {
+			return i;
 		}
 	}
 	
-	if(required) {
+	return -1;
+}
+
+export function _FindEnum(name, args, required=false, defaultValue=Nothing()) {
+  var index = _FindEnumIndex(name, args);
+	if(required && index == -1) {
+		name = name.charAt(0).toUpperCase() + name.substring(1, name.length);
 		throw new Error(`Property ${name}() is missing.`);
-	} else {
+	} else if(!required && index == -1) {
 		// Not null so _FindEnum() doesn't bug out.
-		return {
-			name: "",
-			found: false,
-			args: []
-		};
+		defaultValue.found = true;
+		if(defaultValue.name === "nothing") {
+			defaultValue.found = false;
+		}
+
+		return defaultValue;
 	}
+
+  return args[index];
 }

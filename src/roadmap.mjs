@@ -1,50 +1,7 @@
 /*
-  Things to do.
-  * Canvas.
-  
-  Input.
-    Keyboard,
-    Mouse,
-      X,
-      Y,
-      Left,
-      Right,
-      Middle,
-      Double
-      
-  Basic object functionality,
-    Update,
-    Start,
-    Exit
+	!!! If you are looking at this repo, make sure all the syntax is up to date. !!!
+  Things to do:
+    (Nothing is here yet, I need to decide what is needed to advance the repo version.)
     
-  Rectangles,
-    Position,
-    Size,
-    Color
-    
-  Images,
-    Rectangle,
-    Image URL
-    
-  Text,
-    Rectangle,
-    Size,
-    Type,
-    Text,
-    Best Fit,
-    Italic,
-    Bold,
-    Underline
-    
-  Oval,
-    Rectangle,
-    Color
-    
-  SVG,
-    Path2D
-    
-  Collision,
-    OnEnter,
-    OnThisFrame,
-    OnExit
+  !!! P.S. Once this is all done, a new roadmap will be made. !!!
 */

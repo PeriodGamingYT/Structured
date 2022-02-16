@@ -6,13 +6,42 @@ export class Vector2 {
 		this.x = x;
 		this.y = y;
 	}
-}
 
-export function EnumToVec2(actionEnum, defaultX=0, defaultY=0) {
-	if(actionEnum.found) {
-		return new Vector2(actionEnum.args[0], actionEnum.args[1]);
-	} else {
-		return new Vector2(defaultX, defaultY);
+  arithmetic(arithmeticFunction=(a, b) => {}, param=new Vector2()) {
+    return new Vector2(
+			arithmeticFunction(this.x, param.x),
+			arithmeticFunction(this.y, param.y)
+		);
+  }
+
+	add(param=new Vector2()) {
+		return arithmetic((a, b) => {
+			return a + b;
+		}, param);
+	}
+
+	sub(param=new Vector2()) {
+		return arithmetic((a, b) => {
+			return a + b;
+		}, param);
+	}
+
+	mul(param=new Vector2()) {
+		return arithmetic((a, b) => {
+			return a + b;
+		}, param);
+	}
+
+	div(param=new Vector2()) {
+		return arithmetic((a, b) => {
+			return a + b;
+		}, param);
+	}
+
+	pow(param=new Vector2()) {
+		return arithmetic((a, b) => {
+			return Math.pow(a, b);
+		}, param);
 	}
 }
 
@@ -22,6 +51,11 @@ export function Vec2() {
 		arguments[0], 
 		arguments.length == 1 ? arguments[0] : arguments[1]
 	);
+}
+
+export function EnumToVec2() {
+	var vec2Enum = _FindEnum("vec2", arguments, false, _FindEnum("vec2", arguments[0].args, true));
+	return new Vector2(vec2Enum.args[0], vec2Enum.args[1]);
 }
 
 export function Size() {
@@ -35,5 +69,4 @@ export function Position() {
 	return _ActionEnum(
 		"position", 
 		Vec2(...arguments)
-	);
-}
+	); }
